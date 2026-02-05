@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ryan Sports Club - Photo Gallery & Champions">
+    <title>Gallery - Ryan Sports Club</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/gallery.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">RYAN</span>
+                    <span class="brand-subtitle">SPORTS CLUB</span>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="sports.html" class="nav-link">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Sports</span>
+                </a>
+                <a href="membership.html" class="nav-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Membership</span>
+                </a>
+                <a href="activities.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Activities</span>
+                </a>
+                <a href="gallery.html" class="nav-link active">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-background">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="header-content">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Gallery</span>
+                </nav>
+                <h1 class="page-title">Gallery & Champions</h1>
+                <p class="page-description">
+                    Explore our vibrant community through photos of events, facilities, and celebrate
+                    our champions who have achieved excellence in various sports.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Photos</span>
+                </button>
+                <button class="filter-tab" data-filter="facilities">
+                    <i class="fas fa-building"></i>
+                    <span>Facilities</span>
+                </button>
+                <button class="filter-tab" data-filter="events">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events</span>
+                </button>
+                <button class="filter-tab" data-filter="sports">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Sports Action</span>
+                </button>
+                <button class="filter-tab" data-filter="champions">
+                    <i class="fas fa-trophy"></i>
+                    <span>Champions</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Champions Section -->
+    <section class="champions-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Our Champions</span>
+                </div>
+                <h2 class="section-title">Hall of Fame</h2>
+                <p class="section-subtitle">
+                    Celebrating our outstanding members who have achieved excellence and brought
+                    glory to Ryan Sports Club through their dedication and performance.
+                </p>
+            </div>
+
+            <div class="champions-grid">
+                <div class="champion-card featured">
+                    <div class="champion-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                        <div class="champion-badge">
+                            <i class="fas fa-medal"></i>
+                            <span>Champion</span>
+                        </div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>Sarah Johnson</h3>
+                        <span class="sport">Swimming</span>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>National Swimming Championship 2025</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>3x State Record Holder</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-star"></i>
+                                <span>Club Member Since 2020</span>
+                            </div>
+                        </div>
+                        <p class="champion-quote">
+                            "Ryan Sports Club provided me with world-class training facilities and
+                            expert coaching that helped me achieve my Olympic dreams."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="champion-card">
+                    <div class="champion-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <div class="champion-badge">
+                            <i class="fas fa-trophy"></i>
+                            <span>MVP</span>
+                        </div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>Marcus Thompson</h3>
+                        <span class="sport">Basketball</span>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>Regional Basketball League MVP 2025</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>College Scholarship Recipient</span>
+                            </div>
+                        </div>
+                        <p class="champion-quote">
+                            "The professional coaching and competitive environment at Ryan Sports Club
+                            elevated my game to the next level."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="champion-card">
+                    <div class="champion-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-tennis-ball"></i>
+                        </div>
+                        <div class="champion-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Rising Star</span>
+                        </div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>Emma Rodriguez</h3>
+                        <span class="sport">Tennis</span>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>Junior Tennis Championship 2025</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>Youth Player of the Year</span>
+                            </div>
+                        </div>
+                        <p class="champion-quote">
+                            "Starting my tennis journey here as a beginner, the club's support
+                            helped me become a champion."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="champion-card">
+                    <div class="champion-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <div class="champion-badge">
+                            <i class="fas fa-medal"></i>
+                            <span>Team Captain</span>
+                        </div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>David Chen</h3>
+                        <span class="sport">Football</span>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>City Football League Champions 2025</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>Team Captain & Top Scorer</span>
+                            </div>
+                        </div>
+                        <p class="champion-quote">
+                            "Leading our team to victory was possible because of the excellent
+                            training facilities and team spirit at Ryan Sports Club."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="photo-gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-camera"></i>
+                    <span>Photo Gallery</span>
+                </div>
+                <h2 class="section-title">Moments & Memories</h2>
+                <p class="section-subtitle">
+                    Capturing the energy, passion, and community spirit that makes Ryan Sports Club special.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Facilities Photos -->
+                <div class="gallery-item" data-category="facilities" onclick="openLightbox(this)">
+                    <div class="image-placeholder large">
+                        <i class="fas fa-swimming-pool"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Olympic Swimming Pool</h4>
+                                <p>50m professional swimming facility</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-dumbbell"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Modern Gym Equipment</h4>
+                                <p>State-of-the-art fitness machines</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-basketball-ball"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Basketball Courts</h4>
+                                <p>Professional indoor courts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Photos -->
+                <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                    <div class="image-placeholder wide">
+                        <i class="fas fa-trophy"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Annual Awards Ceremony</h4>
+                                <p>Celebrating our champions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-users"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Family Fun Day</h4>
+                                <p>Community gathering event</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-heart"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Charity Marathon</h4>
+                                <p>Running for a cause</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sports Action Photos -->
+                <div class="gallery-item" data-category="sports" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-swimmer"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Swimming Competition</h4>
+                                <p>Athletes in action</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports" onclick="openLightbox(this)">
+                    <div class="image-placeholder tall">
+                        <i class="fas fa-tennis-ball"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Tennis Tournament</h4>
+                                <p>Intense match moments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-futbol"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Football Match</h4>
+                                <p>Team in action</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Champions Photos -->
+                <div class="gallery-item" data-category="champions" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-medal"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Medal Ceremony</h4>
+                                <p>Victory moments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="champions" onclick="openLightbox(this)">
+                    <div class="image-placeholder wide">
+                        <i class="fas fa-crown"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Championship Team</h4>
+                                <p>Our winning squad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="champions" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-star"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Rising Stars</h4>
+                                <p>Future champions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities" onclick="openLightbox(this)">
+                    <div class="image-placeholder">
+                        <i class="fas fa-spa"></i>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Recovery Center</h4>
+                                <p>Wellness and recovery facilities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="gallery-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Championships Won</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Individual Champions</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Events Hosted</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Memories Captured</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">RYAN SPORTS CLUB</span>
+                        <span class="brand-tagline">Excellence in Sports & Fitness</span>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="sports.html">Sports</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="activities.html">Activities</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Sports</h4>
+                        <a href="sports.html#swimming">Swimming</a>
+                        <a href="sports.html#basketball">Basketball</a>
+                        <a href="sports.html#football">Football</a>
+                        <a href="sports.html#tennis">Tennis</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Contact</h4>
+                        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        <a href="mailto:info@ryansportsclub.com">info@ryansportsclub.com</a>
+                        <a href="contact.html">Contact Form</a>
+                        <a href="gallery.html">Gallery</a>
+                    </div>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Ryan Sports Club. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-image">
+                <div class="image-placeholder" id="lightboxImage">
+                    <i class="fas fa-image"></i>
+                </div>
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle">Image Title</h3>
+                <p id="lightboxDescription">Image description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+
+</html>

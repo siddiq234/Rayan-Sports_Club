@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ryan Sports Club - Sports & Activities">
+    <title>Sports & Activities - Ryan Sports Club</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/sports.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">RYAN</span>
+                    <span class="brand-subtitle">SPORTS CLUB</span>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="sports.html" class="nav-link active">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Sports</span>
+                </a>
+                <a href="membership.html" class="nav-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Membership</span>
+                </a>
+                <a href="activities.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Activities</span>
+                </a>
+                <a href="gallery.html" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-background">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="header-content">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Sports & Activities</span>
+                </nav>
+                <h1 class="page-title">Sports & Activities</h1>
+                <p class="page-description">
+                    Discover our comprehensive range of sports and recreational activities designed
+                    to challenge, inspire, and help you achieve your fitness goals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Filter -->
+    <section class="sports-filter">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Sports</span>
+                </button>
+                <button class="filter-tab" data-filter="indoor">
+                    <i class="fas fa-building"></i>
+                    <span>Indoor</span>
+                </button>
+                <button class="filter-tab" data-filter="outdoor">
+                    <i class="fas fa-sun"></i>
+                    <span>Outdoor</span>
+                </button>
+                <button class="filter-tab" data-filter="water">
+                    <i class="fas fa-swimmer"></i>
+                    <span>Water Sports</span>
+                </button>
+                <button class="filter-tab" data-filter="fitness">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Fitness</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indoor Sports -->
+    <section id="indoor-sports" class="sports-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-building"></i>
+                    <span>Indoor Sports</span>
+                </div>
+                <h2 class="section-title">Climate-Controlled Excellence</h2>
+                <p class="section-subtitle">
+                    Train year-round in our state-of-the-art indoor facilities with professional-grade equipment.
+                </p>
+            </div>
+
+            <div class="sports-grid">
+                <div class="sport-detail-card" data-category="indoor" id="basketball">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Basketball</h3>
+                            <span class="sport-category">Indoor Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Professional basketball court with modern facilities, expert coaching, and competitive
+                            leagues.
+                            Perfect for players of all skill levels looking to improve their game.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Operating Hours</h4>
+                                        <p>6:00 AM - 10:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h4>Capacity</h4>
+                                        <p>10 players per court</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h4>Skill Level</h4>
+                                        <p>Beginner to Professional</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <h4>Tournaments</h4>
+                                        <p>Monthly competitions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Rules & Regulations</h4>
+                                <ul>
+                                    <li>5 players per team on court</li>
+                                    <li>4 quarters of 12 minutes each</li>
+                                    <li>24-second shot clock</li>
+                                    <li>Professional NBA rules apply</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Players</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Michael Jordan</span>
+                                        <span class="player-title">NBA Legend</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">LeBron James</span>
+                                        <span class="player-title">4x NBA Champion</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Kobe Bryant</span>
+                                        <span class="player-title">5x NBA Champion</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('basketball')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sport-detail-card" data-category="indoor">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-table-tennis"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Table Tennis</h3>
+                            <span class="sport-category">Indoor Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Multiple professional table tennis tables with high-quality equipment and expert coaching.
+                            Great for improving reflexes, coordination, and competitive play.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Operating Hours</h4>
+                                        <p>7:00 AM - 9:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h4>Tables Available</h4>
+                                        <p>8 professional tables</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h4>Skill Level</h4>
+                                        <p>All levels welcome</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <h4>Leagues</h4>
+                                        <p>Weekly tournaments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Rules & Regulations</h4>
+                                <ul>
+                                    <li>Best of 5 or 7 sets</li>
+                                    <li>11 points per set</li>
+                                    <li>Must win by 2 points</li>
+                                    <li>Service alternates every 2 points</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Players</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Ma Long</span>
+                                        <span class="player-title">Olympic Champion</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Fan Zhendong</span>
+                                        <span class="player-title">World Champion</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Ding Ning</span>
+                                        <span class="player-title">Olympic Gold</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('tabletennis')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Sports -->
+    <section id="water-sports" class="sports-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-swimmer"></i>
+                    <span>Water Sports</span>
+                </div>
+                <h2 class="section-title">Aquatic Excellence</h2>
+                <p class="section-subtitle">
+                    Dive into our world-class aquatic facilities with Olympic-standard pools and professional coaching.
+                </p>
+            </div>
+
+            <div class="sports-grid">
+                <div class="sport-detail-card featured" data-category="water" id="swimming">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Swimming</h3>
+                            <span class="sport-category">Water Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge popular">Most Popular</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Olympic-size swimming pool with professional coaching, training programs, and competitive
+                            swimming.
+                            Perfect for fitness, recreation, and competitive swimming at all levels.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Operating Hours</h4>
+                                        <p>5:00 AM - 11:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-swimming-pool"></i>
+                                    <div>
+                                        <h4>Pool Size</h4>
+                                        <p>50m Olympic Standard</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h4>Programs</h4>
+                                        <p>Learn to Swim, Competitive</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <h4>Championships</h4>
+                                        <p>Annual swim meets</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Swimming Strokes</h4>
+                                <ul>
+                                    <li>Freestyle (Front Crawl)</li>
+                                    <li>Backstroke</li>
+                                    <li>Breaststroke</li>
+                                    <li>Butterfly</li>
+                                    <li>Individual Medley</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Swimmers</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Michael Phelps</span>
+                                        <span class="player-title">23x Olympic Gold</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Katie Ledecky</span>
+                                        <span class="player-title">7x Olympic Gold</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Adam Peaty</span>
+                                        <span class="player-title">World Record Holder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('swimming')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outdoor Sports -->
+    <section id="outdoor-sports" class="sports-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-sun"></i>
+                    <span>Outdoor Sports</span>
+                </div>
+                <h2 class="section-title">Fresh Air Athletics</h2>
+                <p class="section-subtitle">
+                    Experience the thrill of outdoor sports with professional-grade fields and expert coaching.
+                </p>
+            </div>
+
+            <div class="sports-grid">
+                <div class="sport-detail-card" data-category="outdoor" id="football">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Football</h3>
+                            <span class="sport-category">Outdoor Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Full-size football field with natural grass, professional standards, and expert coaching.
+                            Perfect for serious players and recreational games alike.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Operating Hours</h4>
+                                        <p>6:00 AM - 8:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h4>Team Size</h4>
+                                        <p>11 vs 11 players</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h4>Leagues</h4>
+                                        <p>Youth & Adult leagues</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <h4>Tournaments</h4>
+                                        <p>Seasonal competitions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Rules & Regulations</h4>
+                                <ul>
+                                    <li>90 minutes match duration</li>
+                                    <li>11 players per team</li>
+                                    <li>Offside rule applies</li>
+                                    <li>FIFA standard rules</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Players</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Lionel Messi</span>
+                                        <span class="player-title">8x Ballon d'Or</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Cristiano Ronaldo</span>
+                                        <span class="player-title">5x Ballon d'Or</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Pelé</span>
+                                        <span class="player-title">3x World Cup</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('football')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sport-detail-card" data-category="outdoor" id="tennis">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-tennis-ball"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Tennis</h3>
+                            <span class="sport-category">Outdoor Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Professional tennis courts with both clay and hard surfaces. Expert coaching available
+                            for all skill levels from beginner to tournament play.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Operating Hours</h4>
+                                        <p>6:00 AM - 9:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-court-sport"></i>
+                                    <div>
+                                        <h4>Courts</h4>
+                                        <p>6 professional courts</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h4>Surface Types</h4>
+                                        <p>Clay & Hard courts</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <h4>Tournaments</h4>
+                                        <p>Monthly competitions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Rules & Regulations</h4>
+                                <ul>
+                                    <li>Best of 3 or 5 sets</li>
+                                    <li>Deuce scoring system</li>
+                                    <li>Service alternates each game</li>
+                                    <li>ITF standard rules</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Players</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Roger Federer</span>
+                                        <span class="player-title">20x Grand Slam</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Serena Williams</span>
+                                        <span class="player-title">23x Grand Slam</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Rafael Nadal</span>
+                                        <span class="player-title">22x Grand Slam</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('tennis')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Ready to Get Started?</h2>
+                    <p>
+                        Join Ryan Sports Club today and gain access to all our world-class sports facilities,
+                        expert coaching, and vibrant community of athletes.
+                    </p>
+                </div>
+                <div class="cta-actions">
+                    <a href="membership.html" class="btn btn-primary-large">
+                        <span>Become a Member</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-large">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">RYAN SPORTS CLUB</span>
+                        <span class="brand-tagline">Excellence in Sports & Fitness</span>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="sports.html">Sports</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="activities.html">Activities</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Sports</h4>
+                        <a href="#swimming">Swimming</a>
+                        <a href="#basketball">Basketball</a>
+                        <a href="#football">Football</a>
+                        <a href="#tennis">Tennis</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Contact</h4>
+                        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        <a href="mailto:info@ryansportsclub.com">info@ryansportsclub.com</a>
+                        <a href="contact.html">Contact Form</a>
+                        <a href="gallery.html">Gallery</a>
+                    </div>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Ryan Sports Club. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/sports.js"></script>
+</body>
+
+</html>
