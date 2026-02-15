@@ -56,30 +56,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Global function for opening lightbox
-    window.openLightbox = function(element) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxTitle = document.getElementById('lightboxTitle');
-        const lightboxDescription = document.getElementById('lightboxDescription');
-        
-        // Get image data from the clicked element
-        const imageData = getImageData(element);
-        
-        // Update lightbox content
+window.openLightbox = function(element) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDescription = document.getElementById('lightboxDescription');
+    
+    // Get image data from the clicked element
+    const imageData = getImageData(element);
+    
+    // Update lightbox content - show image if available, otherwise icon
+    if (imageData.imageSrc) {
+        lightboxImage.innerHTML = `<img src="${imageData.imageSrc}" alt="${imageData.title}" style="width:100%;height:100%;object-fit:cover;">`;
+    } else {
         lightboxImage.innerHTML = `<i class="${imageData.icon}"></i>`;
-        lightboxImage.style.background = imageData.background;
-        lightboxTitle.textContent = imageData.title;
-        lightboxDescription.textContent = imageData.description;
-        
-        // Show lightbox
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Add animation
-        setTimeout(() => {
-            lightbox.style.opacity = '1';
-        }, 10);
-    };
+    }
+    lightboxImage.style.background = imageData.background;
+    lightboxTitle.textContent = imageData.title;
+    lightboxDescription.textContent = imageData.description;
+    
+    // Show lightbox
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Add animation
+    setTimeout(() => {
+        lightbox.style.opacity = '1';
+    }, 10);
+};
 
     // Global function for closing lightbox
     window.closeLightbox = function() {
@@ -93,39 +97,46 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function getImageData(element) {
-        const overlayContent = element.querySelector('.overlay-content');
-        const icon = element.querySelector('.image-placeholder i');
-        const placeholder = element.querySelector('.image-placeholder');
+    const overlayContent = element.querySelector('.overlay-content');
+    const icon = element.querySelector('.image-placeholder i');
+    const placeholder = element.querySelector('.image-placeholder');
+    const img = element.querySelector('.image-placeholder img');
+    
+    let title = 'Gallery Image';
+    let description = 'Ryan Sports Club';
+    let iconClass = 'fas fa-image';
+    let background = 'var(--gradient-primary)';
+    let imageSrc = null;
+    
+    if (overlayContent) {
+        const titleElement = overlayContent.querySelector('h4');
+        const descElement = overlayContent.querySelector('p');
         
-        let title = 'Gallery Image';
-        let description = 'Ryan Sports Club';
-        let iconClass = 'fas fa-image';
-        let background = 'var(--gradient-primary)';
-        
-        if (overlayContent) {
-            const titleElement = overlayContent.querySelector('h4');
-            const descElement = overlayContent.querySelector('p');
-            
-            if (titleElement) title = titleElement.textContent;
-            if (descElement) description = descElement.textContent;
-        }
-        
-        if (icon) {
-            iconClass = icon.className;
-        }
-        
-        if (placeholder) {
-            const computedStyle = window.getComputedStyle(placeholder);
-            background = computedStyle.background || 'var(--gradient-primary)';
-        }
-        
-        return {
-            title: title,
-            description: description,
-            icon: iconClass,
-            background: background
-        };
+        if (titleElement) title = titleElement.textContent;
+        if (descElement) description = descElement.textContent;
     }
+    
+    if (img) {
+        imageSrc = img.src;
+    }
+    
+    if (icon) {
+        iconClass = icon.className;
+    }
+    
+    if (placeholder) {
+        const computedStyle = window.getComputedStyle(placeholder);
+        background = computedStyle.background || 'var(--gradient-primary)';
+    }
+    
+    return {
+        title: title,
+        description: description,
+        icon: iconClass,
+        background: background,
+        imageSrc: imageSrc
+    };
+};
 
     // Gallery image data for enhanced experience
     const galleryData = {

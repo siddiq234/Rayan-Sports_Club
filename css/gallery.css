@@ -144,6 +144,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.champion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.champion-card:hover .champion-image img {
+    transform: scale(1.05);
 }
 
 .image-placeholder {
@@ -156,6 +169,22 @@
     font-size: 4rem;
     color: var(--white);
     position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .image-placeholder img {
+    transform: scale(1.08);
 }
 
 .champion-badge {
@@ -412,6 +441,7 @@
         opacity: 0;
         transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -448,6 +478,17 @@
     font-size: 6rem;
 }
 
+.lightbox-image .image-placeholder img {
+    position: static;
+}
+
+.lightbox-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .lightbox-info {
     padding: 2rem;
 }
@@ -479,16 +520,16 @@
     .champions-grid {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
-    
+
     .champion-card.featured {
         transform: none;
     }
-    
+
     .gallery-item .image-placeholder.large,
     .gallery-item .image-placeholder.wide {
         grid-column: span 1;
     }
-    
+
     .gallery-item .image-placeholder.tall {
         height: 250px;
         grid-row: span 1;
@@ -499,42 +540,42 @@
     .page-title {
         font-size: 2.5rem;
     }
-    
+
     .filter-tabs {
         gap: 0.5rem;
     }
-    
+
     .filter-tab {
         padding: 0.5rem 1rem;
         font-size: 0.875rem;
     }
-    
+
     .champions-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .champion-info {
         padding: 1.5rem;
     }
-    
+
     .lightbox-content {
         margin: 1rem;
         max-height: 95vh;
     }
-    
+
     .lightbox-image {
         height: 300px;
     }
-    
+
     .lightbox-info {
         padding: 1.5rem;
     }
@@ -544,39 +585,39 @@
     .page-header {
         padding: 6rem 0 3rem;
     }
-    
+
     .page-title {
         font-size: 2rem;
     }
-    
+
     .champions-section {
         padding: 4rem 0;
     }
-    
+
     .photo-gallery {
         padding: 4rem 0;
     }
-    
+
     .gallery-stats {
         padding: 3rem 0;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-card {
         padding: 1.5rem;
     }
-    
+
     .champion-image {
         height: 200px;
     }
-    
+
     .gallery-item .image-placeholder {
         height: 200px;
     }
-    
+
     .overlay-content {
         padding: 1rem;
     }
