@@ -21,7 +21,7 @@
 
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%);
-    --gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.9) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(29, 78, 216, 0.4) 100%);
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -312,6 +312,8 @@ img {
     position: relative;
     width: 100%;
     height: 100%;
+    background-color: var(--primary-dark);
+    /* Fallback */
     background: var(--gradient-hero);
 }
 
@@ -333,6 +335,75 @@ img {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+}
+
+.header-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.page-header {
+    position: relative;
+    padding: 120px 0;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fallback/Stronger tint */
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-description {
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.breadcrumb,
+.breadcrumb a,
+.breadcrumb span {
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.breadcrumb a:hover {
+    color: var(--secondary);
 }
 
 .animated-bg {
@@ -389,7 +460,8 @@ img {
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
+    /* Increased to ensure visibility */
     width: 100%;
     padding: 6rem 0;
 }
@@ -1636,4 +1708,988 @@ iframe {
 
 .aspect-square {
     aspect-ratio: 1 / 1;
+}
+
+/* ================================================
+   RESPONSIVE STYLES (merged from responsive.css)
+   ================================================ */
+
+/* -------- BASE RESPONSIVE FIXES -------- */
+
+/* Prevent horizontal scroll on all devices */
+html,
+body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Global font readability */
+body {
+    font-size: clamp(15px, 1vw + 12px, 18px);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Minimum readable sizes for all text */
+p,
+li,
+td,
+th,
+label,
+span,
+a {
+    min-height: 0;
+    line-height: 1.5;
+}
+
+/* Ensure small text is never too small */
+.brand-subtitle,
+.sport-category,
+.status-badge,
+.activity-type,
+.plan-description,
+.breadcrumb,
+.period,
+.player-title,
+.detail-item,
+.feature-item p,
+.event-content .event-date .month,
+.section-badge,
+.plan-badge,
+.event-badge,
+.progress-step,
+.footer-bottom,
+small,
+.small {
+    font-size: max(0.75rem, 12px);
+}
+
+/* Headings minimum sizes */
+h1,
+.page-title {
+    font-size: max(1.75rem, 24px);
+}
+
+h2,
+.section-title {
+    font-size: max(1.5rem, 20px);
+}
+
+h3 {
+    font-size: max(1.15rem, 16px);
+}
+
+h4 {
+    font-size: max(1rem, 15px);
+}
+
+/* Body text never below 14px */
+p,
+li,
+.sport-description,
+.page-description,
+.contact-content p,
+.benefit-card p,
+.plan-features,
+.event-content p,
+.activity-content p,
+.champion-info p {
+    font-size: max(0.9rem, 14px);
+    line-height: 1.6;
+}
+
+/* Form labels and inputs clearly readable */
+.form-group label {
+    font-size: max(0.9rem, 14px);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-size: max(1rem, 16px);
+}
+
+/* Nav links readable */
+.nav-link {
+    font-size: max(0.875rem, 14px);
+}
+
+/* Button text readable */
+.btn,
+.plan-btn,
+.activity-btn {
+    font-size: max(0.875rem, 14px);
+}
+
+/* Footer text readable */
+.footer-section a,
+.footer-section p,
+.footer-section li {
+    font-size: max(0.875rem, 14px);
+}
+
+/* Ensure all images, videos, embeds are responsive */
+img,
+video,
+iframe,
+embed,
+object,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* iOS safe areas */
+body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* -------- EXTRA LARGE SCREENS (1400px+) -------- */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .title-main {
+        font-size: 4.5rem;
+    }
+
+    .sports-grid,
+    .features-grid,
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* -------- LARGE DESKTOP (1200px) -------- */
+@media (max-width: 1200px) {
+    .plans-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* -------- TABLET LANDSCAPE (1024px) -------- */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .nav-menu {
+        gap: 1.25rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .sports-filter,
+    .activity-filter {
+        top: 65px;
+    }
+
+    .page-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+    }
+
+    .page-description {
+        font-size: 1.125rem;
+    }
+
+    .month-info h2 {
+        font-size: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .contact-card {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-content p {
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        height: 350px;
+    }
+}
+
+/* -------- TABLET PORTRAIT (768px) -------- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-container {
+        padding: 0.35rem 1rem;
+    }
+
+    .brand-logo {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .brand-logo img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .brand-name {
+        font-size: 0.95rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.6rem;
+    }
+
+    .nav-brand {
+        gap: 0.5rem;
+    }
+
+    .page-header {
+        padding: 6rem 0 3rem;
+    }
+
+    .page-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .plan-card.featured {
+        transform: none;
+        border-width: 2px;
+    }
+
+    .plan-header {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .plan-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .amount {
+        font-size: 2.5rem;
+    }
+
+    .plan-name {
+        font-size: 1.5rem;
+    }
+
+    .membership-form {
+        padding: 2rem;
+    }
+
+    .form-header {
+        padding: 2rem;
+    }
+
+    .progress-steps {
+        gap: 0.75rem;
+    }
+
+    .progress-step {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85rem;
+    }
+
+    .activities-timeline {
+        padding: 4rem 0;
+    }
+
+    .month-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-image {
+        height: 160px;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+
+    .form-tab {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        height: 280px;
+    }
+
+    .map-content {
+        padding: 1.5rem;
+        max-width: 250px;
+    }
+
+    .map-actions {
+        flex-direction: column;
+    }
+
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-brand .brand-logo {
+        margin: 0 auto;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .cta-text h2 {
+        font-size: 2rem;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* -------- MOBILE LANDSCAPE (640px) -------- */
+@media (max-width: 640px) {
+    .form-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+
+    .form-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .form-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .forms-container {
+        min-height: auto;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .contact-card .contact-icon {
+        flex-shrink: 0;
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .benefit-card {
+        padding: 1.5rem;
+    }
+}
+
+/* -------- MOBILE PORTRAIT (480px) -------- */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.3rem 0.75rem;
+    }
+
+    .brand-logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    .brand-logo img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-brand {
+        gap: 0.4rem;
+    }
+
+    .brand-name {
+        font-size: 0.9rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.55rem;
+        letter-spacing: 0.02em;
+    }
+
+    section,
+    .champions-section,
+    .photo-gallery,
+    .gallery-stats,
+    .sports-section,
+    .membership-plans,
+    .membership-form-section,
+    .benefits-section,
+    .activities-timeline,
+    .upcoming-events,
+    .contact-info,
+    .contact-forms,
+    .map-section {
+        padding: 3rem 0;
+    }
+
+    .page-header {
+        padding: 5rem 0 2.5rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .plan-header {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .plan-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .plan-name {
+        font-size: 1.25rem;
+    }
+
+    .amount {
+        font-size: 2rem;
+    }
+
+    .currency {
+        font-size: 1.25rem;
+    }
+
+    .plan-features {
+        padding: 1.25rem;
+    }
+
+    .plan-action {
+        padding: 1.25rem;
+    }
+
+    .plan-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .form-step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-navigation {
+        margin-top: 2rem;
+        gap: 0.75rem;
+    }
+
+    .form-navigation .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .month-header {
+        padding: 1.25rem;
+        gap: 0.75rem;
+    }
+
+    .month-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .month-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .activity-date {
+        padding: 1rem;
+    }
+
+    .activity-date .day {
+        font-size: 1.75rem;
+    }
+
+    .activity-content {
+        padding: 1.25rem;
+    }
+
+    .activity-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .activity-type {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .event-card {
+        border-radius: var(--radius-lg, 12px);
+    }
+
+    .event-image {
+        height: 140px;
+    }
+
+    .event-content {
+        padding: 1.25rem;
+    }
+
+    .event-content .event-date {
+        padding: 0.75rem;
+        min-width: 65px;
+    }
+
+    .event-content .event-date .day {
+        font-size: 1.5rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .contact-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .form-tab {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .rating-item label i {
+        font-size: 1.5rem;
+    }
+
+    .service-ratings {
+        padding: 1rem;
+    }
+
+    .map-container {
+        height: 220px;
+        border-radius: var(--radius-lg, 12px);
+    }
+
+    .map-content {
+        padding: 1rem;
+        max-width: 200px;
+    }
+
+    .map-content h3 {
+        font-size: 1rem;
+    }
+
+    .map-content i.fa-map-marker-alt {
+        font-size: 1.5rem;
+    }
+
+    .footer {
+        padding: 2.5rem 0 1rem;
+    }
+
+    .footer-content {
+        gap: 1.5rem;
+    }
+
+    .footer-brand .brand-name {
+        font-size: 1.1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1rem;
+    }
+
+    .cta-section {
+        padding: 3rem 0;
+    }
+
+    .cta-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-text p {
+        font-size: 0.95rem;
+    }
+
+    .hero-section {
+        min-height: 80vh;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .author-avatar {
+        margin: 0 auto;
+    }
+}
+
+/* -------- EXTRA SMALL SCREENS (360px) -------- */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .nav-container {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .brand-logo {
+        width: 26px;
+        height: 26px;
+    }
+
+    .brand-logo img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .brand-name {
+        font-size: 0.85rem;
+    }
+
+    .brand-subtitle {
+        display: none;
+    }
+
+    .title-main {
+        font-size: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-card {
+        margin: 0 -0.25rem;
+    }
+
+    .amount {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-actions {
+        width: 100%;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+/* -------- TOUCH DEVICE OPTIMIZATIONS -------- */
+@media (hover: none) and (pointer: coarse) {
+
+    .nav-link,
+    .filter-tab,
+    .form-tab,
+    .btn,
+    .checkbox-item,
+    .plan-btn,
+    .activity-btn,
+    .contact-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .sport-detail-card:hover,
+    .plan-card:hover,
+    .event-card:hover,
+    .contact-card:hover,
+    .benefit-card:hover,
+    .feature-card:hover,
+    .visual-card:hover {
+        transform: none;
+    }
+
+    .filter-tabs,
+    .form-tabs {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .btn,
+    .nav-link,
+    .filter-tab,
+    .form-tab {
+        touch-action: manipulation;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* -------- LANDSCAPE PHONE ORIENTATION -------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-container {
+        padding: 0.25rem 1rem;
+    }
+
+    .brand-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-name {
+        font-size: 0.9rem;
+    }
+
+    .brand-subtitle {
+        display: none;
+    }
+
+    .page-header {
+        padding: 4rem 0 2rem;
+    }
+
+    .hero-section {
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        padding: 1rem 0;
+    }
+
+    .sports-filter,
+    .activity-filter {
+        top: 45px;
+    }
+}
+
+/* -------- HIGH DPI / RETINA DISPLAYS -------- */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .navbar {
+        border-bottom-width: 0.5px;
+    }
+
+    .sport-detail-card,
+    .plan-card,
+    .event-card,
+    .contact-card,
+    .champion-card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* -------- ACCESSIBILITY: REDUCED MOTION -------- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .sport-detail-card:hover,
+    .plan-card:hover,
+    .event-card:hover,
+    .contact-card:hover,
+    .benefit-card:hover {
+        transform: none !important;
+    }
+}
+
+/* -------- PRINT STYLES -------- */
+@media print {
+
+    .navbar,
+    .nav-toggle,
+    .back-to-top,
+    .lightbox,
+    .notification,
+    .filter-tabs,
+    .form-tabs,
+    .cta-section,
+    .footer {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+    }
+
+    .page-header {
+        background: none !important;
+        color: #000 !important;
+        padding: 1rem 0;
+    }
+
+    .page-title {
+        color: #000 !important;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .btn {
+        border: 1px solid #000;
+        background: transparent !important;
+        color: #000 !important;
+    }
+
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        page-break-after: avoid;
+    }
 }

@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Ryan Sports Club - Membership Plans & Registration">
     <title>Membership - Ryan Sports Club</title>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet">
     <link href="css/membership.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+
+    <!-- Animations CSS -->
+    <link href="css/animations.css" rel="stylesheet">
+    <link href="css/modals.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="brand-logo">
-                    <i class="fas fa-trophy"></i>
+                    <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                 </div>
                 <div class="brand-text">
                     <span class="brand-name">RYAN</span>
                     <span class="brand-subtitle">SPORTS CLUB</span>
                 </div>
             </div>
-            
+
             <div class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link">
                     <i class="fas fa-home"></i>
@@ -54,7 +64,7 @@
                     <span>Contact</span>
                 </a>
             </div>
-            
+
             <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -67,6 +77,7 @@
     <section class="page-header">
         <div class="header-background">
             <div class="header-overlay"></div>
+            <img src="images/swimming-pool.jpg" alt="Swimming Pool" class="header-bg-image">
         </div>
         <div class="container">
             <div class="header-content">
@@ -77,7 +88,7 @@
                 </nav>
                 <h1 class="page-title">Join Ryan Sports Club</h1>
                 <p class="page-description">
-                    Choose the perfect membership plan that fits your lifestyle and unlock access to 
+                    Choose the perfect membership plan that fits your lifestyle and unlock access to
                     world-class facilities, expert coaching, and an amazing community.
                 </p>
             </div>
@@ -94,11 +105,11 @@
                 </div>
                 <h2 class="section-title">Choose Your Plan</h2>
                 <p class="section-subtitle">
-                    Flexible membership options designed to meet your fitness goals and budget. 
+                    Flexible membership options designed to meet your fitness goals and budget.
                     All plans include access to our premium facilities and expert guidance.
                 </p>
             </div>
-            
+
             <div class="plans-grid">
                 <div class="plan-card">
                     <div class="plan-header">
@@ -113,7 +124,7 @@
                         </div>
                         <p class="plan-description">Perfect for beginners and casual fitness enthusiasts</p>
                     </div>
-                    
+
                     <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
@@ -140,7 +151,7 @@
                             <span>Pool access</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-action">
                         <button class="btn btn-outline plan-btn" onclick="selectPlan('basic')">
                             <span>Choose Basic</span>
@@ -163,7 +174,7 @@
                         </div>
                         <p class="plan-description">Comprehensive access for serious athletes</p>
                     </div>
-                    
+
                     <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
@@ -190,7 +201,7 @@
                             <span>Guest passes (2/month)</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-action">
                         <button class="btn btn-primary plan-btn" onclick="selectPlan('premium')">
                             <span>Choose Premium</span>
@@ -212,7 +223,7 @@
                         </div>
                         <p class="plan-description">Ultimate experience with exclusive benefits</p>
                     </div>
-                    
+
                     <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
@@ -239,7 +250,7 @@
                             <span>Unlimited guest passes</span>
                         </div>
                     </div>
-                    
+
                     <div class="plan-action">
                         <button class="btn btn-outline plan-btn" onclick="selectPlan('elite')">
                             <span>Choose Elite</span>
@@ -259,11 +270,12 @@
                     <h2>Complete Your Registration</h2>
                     <p>Fill out the form below to join Ryan Sports Club and start your fitness journey today.</p>
                 </div>
-                
+
                 <form class="membership-form" id="membershipForm">
-                    <div class="form-step active" data-step="1">
-                        <h3>Personal Information</h3>
-                        
+                    <!-- Personal Information Section -->
+                    <fieldset class="form-section">
+                        <legend>Personal Information</legend>
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -274,7 +286,7 @@
                                 <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
@@ -285,7 +297,7 @@
                                 <input type="tel" id="phone" name="phone" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="dateOfBirth">Date of Birth *</label>
@@ -302,16 +314,17 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="address">Address *</label>
                             <textarea id="address" name="address" rows="3" required></textarea>
                         </div>
-                    </div>
+                    </fieldset>
 
-                    <div class="form-step" data-step="2">
-                        <h3>Membership Details</h3>
-                        
+                    <!-- Membership Details Section -->
+                    <fieldset class="form-section">
+                        <legend>Membership Details</legend>
+
                         <div class="form-group">
                             <label for="membershipPlan">Selected Plan *</label>
                             <select id="membershipPlan" name="membershipPlan" required>
@@ -321,12 +334,12 @@
                                 <option value="elite">Elite - $149/month</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="startDate">Preferred Start Date *</label>
                             <input type="date" id="startDate" name="startDate" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="fitnessGoals">Fitness Goals</label>
                             <div class="checkbox-group">
@@ -356,7 +369,7 @@
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="experience">Fitness Experience Level</label>
                             <select id="experience" name="experience">
@@ -367,17 +380,18 @@
                                 <option value="professional">Professional Athlete</option>
                             </select>
                         </div>
-                    </div>
+                    </fieldset>
 
-                    <div class="form-step" data-step="3">
-                        <h3>Health & Emergency Information</h3>
-                        
+                    <!-- Health & Emergency Section -->
+                    <fieldset class="form-section">
+                        <legend>Health & Emergency Information</legend>
+
                         <div class="form-group">
                             <label for="medicalConditions">Medical Conditions or Injuries</label>
-                            <textarea id="medicalConditions" name="medicalConditions" rows="3" 
+                            <textarea id="medicalConditions" name="medicalConditions" rows="3"
                                 placeholder="Please list any medical conditions, injuries, or physical limitations we should be aware of..."></textarea>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="emergencyName">Emergency Contact Name *</label>
@@ -388,12 +402,12 @@
                                 <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="emergencyRelation">Relationship to Emergency Contact *</label>
                             <input type="text" id="emergencyRelation" name="emergencyRelation" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="checkbox-group">
                                 <label class="checkbox-item">
@@ -410,32 +424,13 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </fieldset>
 
-                    <div class="form-navigation">
-                        <button type="button" class="btn btn-outline" id="prevBtn" onclick="changeStep(-1)">
-                            <i class="fas fa-arrow-left"></i>
-                            <span>Previous</span>
-                        </button>
-                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
-                            <span>Next</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                    <div class="form-action">
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
                             <span>Complete Registration</span>
                             <i class="fas fa-check"></i>
                         </button>
-                    </div>
-                    
-                    <div class="form-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div class="progress-steps">
-                            <div class="progress-step active">1</div>
-                            <div class="progress-step">2</div>
-                            <div class="progress-step">3</div>
-                        </div>
                     </div>
                 </form>
             </div>
@@ -452,36 +447,39 @@
                 </div>
                 <h2 class="section-title">Why Choose Ryan Sports Club?</h2>
                 <p class="section-subtitle">
-                    Our members enjoy exclusive benefits and world-class amenities designed to 
+                    Our members enjoy exclusive benefits and world-class amenities designed to
                     enhance your fitness journey and overall experience.
                 </p>
             </div>
-            
+
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-dumbbell"></i>
                     </div>
                     <h3>State-of-the-Art Equipment</h3>
-                    <p>Access to the latest fitness equipment and technology from leading brands, regularly maintained and updated.</p>
+                    <p>Access to the latest fitness equipment and technology from leading brands, regularly
+                        maintained and updated.</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Expert Coaching</h3>
-                    <p>Work with certified trainers and coaches who are passionate about helping you achieve your fitness goals.</p>
+                    <p>Work with certified trainers and coaches who are passionate about helping you achieve
+                        your fitness goals.</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Vibrant Community</h3>
-                    <p>Join a supportive community of like-minded individuals who share your passion for health and fitness.</p>
+                    <p>Join a supportive community of like-minded individuals who share your passion for
+                        health and fitness.</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-calendar-check"></i>
@@ -489,21 +487,23 @@
                     <h3>Flexible Scheduling</h3>
                     <p>Open 365 days a year with extended hours to fit your busy lifestyle and schedule.</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-spa"></i>
                     </div>
                     <h3>Recovery & Wellness</h3>
-                    <p>Comprehensive recovery facilities including saunas, massage therapy, and relaxation areas.</p>
+                    <p>Comprehensive recovery facilities including saunas, massage therapy, and relaxation
+                        areas.</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Mobile App Access</h3>
-                    <p>Book classes, track workouts, and connect with trainers through our exclusive mobile application.</p>
+                    <p>Book classes, track workouts, and connect with trainers through our exclusive mobile
+                        application.</p>
                 </div>
             </div>
         </div>
@@ -515,14 +515,14 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-logo">
-                        <i class="fas fa-trophy"></i>
+                        <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                     </div>
                     <div class="brand-text">
                         <span class="brand-name">RYAN SPORTS CLUB</span>
                         <span class="brand-tagline">Excellence in Sports & Fitness</span>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="link-group">
                         <h4>Quick Links</h4>
@@ -546,7 +546,7 @@
                         <a href="gallery.html">Gallery</a>
                     </div>
                 </div>
-                
+
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-links">
@@ -565,7 +565,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-copyright">
                     <p>&copy; 2026 Ryan Sports Club. All rights reserved.</p>
@@ -586,5 +586,7 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/membership.js"></script>
+    <script src="js/animations.js"></script>
 </body>
+
 </html>

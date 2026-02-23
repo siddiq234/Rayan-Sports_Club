@@ -1,14 +1,9 @@
-// Activities Page JavaScript
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
-    // Initialize activities functionality
     initActivityFilters();
     initActivityRegistration();
 
-    console.log('📅 Activities page loaded successfully!');
-
-    // Activity filtering functionality
     function initActivityFilters() {
         const filterTabs = document.querySelectorAll('.filter-tab');
         const activityCards = document.querySelectorAll('.activity-card[data-category]');
@@ -17,11 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
             tab.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
 
-                // Update active tab
                 filterTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
 
-                // Filter activities
                 filterActivities(filter, activityCards);
             });
         });
@@ -33,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (filter === 'all' || category === filter) {
                 card.style.display = 'flex';
-                // Trigger reflow to ensure transition happens
                 void card.offsetWidth;
                 card.classList.remove('hidden');
             } else {
@@ -49,13 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Activity registration functionality
     function initActivityRegistration() {
-        // This would typically connect to a backend API
-        // For now, we'll simulate with localStorage
     }
 
-    // Global function for activity registration
     window.registerForActivity = function (activityId) {
-        // Get activity details
         const activityData = getActivityDetails(activityId);
 
         if (!activityData) {
@@ -63,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Show registration modal
         showRegistrationModal(activityData);
     };
 
@@ -225,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showRegistrationModal(activity) {
-        // Create modal
         const modal = document.createElement('div');
         modal.className = 'registration-modal';
         modal.innerHTML = `
@@ -329,15 +315,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.body.appendChild(modal);
 
-        // Add styles
-        addModalStyles();
-
-        // Animate in
         setTimeout(() => {
             modal.style.opacity = '1';
         }, 10);
 
-        // Prevent body scroll
         document.body.style.overflow = 'hidden';
     }
 
@@ -388,14 +369,11 @@ document.addEventListener('DOMContentLoaded', function () {
             registrationData[key] = value;
         }
 
-        // Add timestamp and registration ID
         registrationData.registrationDate = new Date().toISOString();
         registrationData.registrationId = generateRegistrationId();
 
-        // Save registration
         saveActivityRegistration(registrationData);
 
-        // Close modal and show success
         closeRegistrationModal();
         showSuccessNotification(registrationData);
     };
@@ -409,16 +387,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function saveActivityRegistration(data) {
         try {
-            // Get existing registrations
             const existingRegistrations = JSON.parse(localStorage.getItem('ryanSportsClubActivityRegistrations') || '[]');
 
-            // Add new registration
             existingRegistrations.push(data);
 
-            // Save back to localStorage
             localStorage.setItem('ryanSportsClubActivityRegistrations', JSON.stringify(existingRegistrations));
 
-            console.log('Activity registration saved:', data);
         } catch (error) {
             console.error('Error saving activity registration:', error);
         }
@@ -431,13 +405,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showNotification(message, type = 'info') {
-        // Remove existing notifications
         const existingNotification = document.querySelector('.notification');
         if (existingNotification) {
             existingNotification.remove();
         }
 
-        // Create notification
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
@@ -449,12 +421,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.body.appendChild(notification);
 
-        // Animate in
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 10);
 
-        // Auto remove
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
@@ -472,293 +442,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function addModalStyles() {
-        if (document.querySelector('#modal-styles')) return;
-
-        const style = document.createElement('style');
-        style.id = 'modal-styles';
-        style.textContent = `
-            .registration-modal {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 2rem;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            
-            .modal-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.8);
-                backdrop-filter: blur(5px);
-            }
-            
-            .modal-content {
-                position: relative;
-                background: white;
-                border-radius: 1.5rem;
-                max-width: 700px;
-                width: 100%;
-                max-height: 90vh;
-                overflow-y: auto;
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            }
-            
-            .modal-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 2rem 2rem 1rem;
-                border-bottom: 1px solid var(--gray-200);
-            }
-            
-            .modal-header h2 {
-                color: var(--gray-900);
-                margin: 0;
-            }
-            
-            .modal-close {
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: var(--gray-500);
-                cursor: pointer;
-                padding: 0.5rem;
-                border-radius: 50%;
-                transition: var(--transition);
-            }
-            
-            .modal-close:hover {
-                background: var(--gray-100);
-                color: var(--gray-700);
-            }
-            
-            .modal-body {
-                padding: 2rem;
-            }
-            
-            .activity-info {
-                background: var(--gray-50);
-                border-radius: 1rem;
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            
-            .info-item {
-                display: flex;
-                margin-bottom: 0.75rem;
-                gap: 1rem;
-            }
-            
-            .info-item:last-child {
-                margin-bottom: 0;
-            }
-            
-            .info-item strong {
-                min-width: 100px;
-                color: var(--gray-700);
-            }
-            
-            .info-item span {
-                color: var(--gray-600);
-                flex: 1;
-            }
-            
-            .requirements-section,
-            .benefits-section {
-                margin-bottom: 2rem;
-            }
-            
-            .requirements-section h3,
-            .benefits-section h3 {
-                color: var(--gray-900);
-                margin-bottom: 1rem;
-                font-size: 1.125rem;
-            }
-            
-            .requirements-section ul,
-            .benefits-section ul {
-                list-style: none;
-                padding: 0;
-            }
-            
-            .requirements-section li,
-            .benefits-section li {
-                padding: 0.5rem 0;
-                padding-left: 1.5rem;
-                position: relative;
-                color: var(--gray-600);
-                border-bottom: 1px solid var(--gray-200);
-            }
-            
-            .requirements-section li:last-child,
-            .benefits-section li:last-child {
-                border-bottom: none;
-            }
-            
-            .requirements-section li::before {
-                content: '•';
-                position: absolute;
-                left: 0;
-                color: var(--primary);
-                font-weight: bold;
-            }
-            
-            .benefits-section li::before {
-                content: '✓';
-                position: absolute;
-                left: 0;
-                color: var(--accent);
-                font-weight: bold;
-            }
-            
-            .registration-form {
-                border-top: 1px solid var(--gray-200);
-                padding-top: 2rem;
-            }
-            
-            .form-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .form-group {
-                margin-bottom: 1rem;
-            }
-            
-            .form-group label {
-                display: block;
-                font-weight: 500;
-                color: var(--gray-700);
-                margin-bottom: 0.5rem;
-            }
-            
-            .form-group input,
-            .form-group textarea {
-                width: 100%;
-                padding: 0.75rem;
-                border: 2px solid var(--gray-200);
-                border-radius: var(--radius);
-                font-family: var(--font-primary);
-                transition: var(--transition);
-            }
-            
-            .form-group input:focus,
-            .form-group textarea:focus {
-                outline: none;
-                border-color: var(--primary);
-                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            }
-            
-            .checkbox-item {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                padding: 0.75rem;
-                background: var(--gray-50);
-                border-radius: var(--radius);
-                cursor: pointer;
-                transition: var(--transition);
-                border: 2px solid transparent;
-            }
-            
-            .checkbox-item:hover {
-                background: var(--gray-100);
-            }
-            
-            .checkbox-item input[type="checkbox"] {
-                width: auto;
-                margin: 0;
-            }
-            
-            .modal-actions {
-                display: flex;
-                justify-content: flex-end;
-                gap: 1rem;
-                padding: 1rem 2rem 2rem;
-                border-top: 1px solid var(--gray-200);
-            }
-            
-            .notification {
-                position: fixed;
-                top: 100px;
-                right: 2rem;
-                background: white;
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                max-width: 400px;
-            }
-            
-            .notification-success {
-                border-left: 4px solid var(--accent);
-            }
-            
-            .notification-error {
-                border-left: 4px solid #ef4444;
-            }
-            
-            .notification-info {
-                border-left: 4px solid var(--primary);
-            }
-            
-            .notification-content {
-                display: flex;
-                align-items: flex-start;
-                gap: 0.75rem;
-                padding: 1rem 1.5rem;
-            }
-            
-            .notification-success i {
-                color: var(--accent);
-            }
-            
-            .notification-error i {
-                color: #ef4444;
-            }
-            
-            .notification-info i {
-                color: var(--primary);
-            }
-            
-            @media (max-width: 768px) {
-                .registration-modal {
-                    padding: 1rem;
-                }
-                
-                .modal-content {
-                    max-height: 95vh;
-                }
-                
-                .form-row {
-                    grid-template-columns: 1fr;
-                }
-                
-                .modal-actions {
-                    flex-direction: column;
-                }
-                
-                .notification {
-                    right: 1rem;
-                    left: 1rem;
-                    max-width: none;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
 });

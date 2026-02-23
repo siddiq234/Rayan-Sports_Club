@@ -1,27 +1,20 @@
-// Sports Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+﻿document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
-    // Initialize sports functionality
     initSportsFilters();
     initBookingSystem();
-    
-    console.log('🏀 Sports page loaded successfully!');
 
-    // Sports filtering functionality
     function initSportsFilters() {
         const filterTabs = document.querySelectorAll('.filter-tab');
         const sportCards = document.querySelectorAll('.sport-detail-card[data-category]');
 
         filterTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
-                
-                // Update active tab
+
                 filterTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
-                
-                // Filter sports
+
                 filterSports(filter, sportCards);
             });
         });
@@ -30,10 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterSports(filter, cards) {
         cards.forEach(card => {
             const category = card.getAttribute('data-category');
-            
+
             if (filter === 'all' || category === filter) {
                 card.style.display = 'block';
-                // Trigger reflow to ensure transition happens
                 void card.offsetWidth;
                 card.classList.remove('hidden');
             } else {
@@ -47,23 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Booking system functionality
     function initBookingSystem() {
-        // This would typically connect to a backend API
-        // For now, we'll simulate with localStorage
     }
 
-    // Global function for session booking
-    window.bookSession = function(sportType) {
-        // Get sport details
+    window.bookSession = function (sportType) {
         const sportData = getSportDetails(sportType);
-        
+
         if (!sportData) {
             showNotification('Sport not found', 'error');
             return;
         }
 
-        // Show booking modal
         showBookingModal(sportData);
     };
 
@@ -175,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showBookingModal(sport) {
-        // Create modal
         const modal = document.createElement('div');
         modal.className = 'booking-modal';
         modal.innerHTML = `
@@ -347,58 +332,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         document.body.appendChild(modal);
-        
-        // Add styles
-        addBookingModalStyles();
-        
-        // Set minimum date to today
+
         const dateInput = document.getElementById('bookingDate');
         if (dateInput) {
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
         }
-        
-        // Add event listeners for real-time summary update
+
         const form = document.getElementById('sportBookingForm');
         if (form) {
             form.addEventListener('change', updateBookingSummary);
             form.addEventListener('input', updateBookingSummary);
         }
-        
-        // Animate in
+
         setTimeout(() => {
             modal.style.opacity = '1';
         }, 10);
-        
-        // Prevent body scroll
+
         document.body.style.overflow = 'hidden';
     }
 
     function updateBookingSummary() {
         const form = document.getElementById('sportBookingForm');
         const summary = document.getElementById('bookingSummary');
-        
+
         if (!form || !summary) return;
-        
+
         const formData = new FormData(form);
         const date = formData.get('date');
         const time = formData.get('time');
         const duration = formData.get('duration');
         const type = formData.get('type');
         const sportId = formData.get('sportId');
-        
+
         if (date && time && duration && type) {
             const sport = getSportDetails(sportId);
             const cost = calculateCost(sport, duration, type);
-            
-            // Update summary
+
             document.getElementById('summaryDateTime').textContent = `${formatDate(date)} at ${formatTime(time)}`;
             document.getElementById('summaryDuration').textContent = `${duration} hour${duration > 1 ? 's' : ''}`;
             document.getElementById('summaryType').textContent = type.charAt(0).toUpperCase() + type.slice(1);
             document.getElementById('summaryTotal').textContent = `$${cost}`;
-            
+
             summary.style.display = 'block';
         } else {
             summary.style.display = 'none';
@@ -412,11 +389,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+        return date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         });
     }
 
@@ -428,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${displayHour}:${minutes} ${ampm}`;
     }
 
-    window.closeBookingModal = function() {
+    window.closeBookingModal = function () {
         const modal = document.querySelector('.booking-modal');
         if (modal) {
             modal.style.opacity = '0';
@@ -439,52 +416,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    window.submitBooking = function() {
+    window.submitBooking = function () {
         const form = document.getElementById('sportBookingForm');
         if (!form) return;
-        
+
         // Validate form
         const requiredFields = form.querySelectorAll('[required]');
         let isValid = true;
-        
+
         requiredFields.forEach(field => {
             if (!field.value.trim()) {
                 isValid = false;
                 field.style.borderColor = '#ef4444';
-                
+
                 // Remove error styling after user starts typing
-                field.addEventListener('input', function() {
+                field.addEventListener('input', function () {
                     this.style.borderColor = '';
                 }, { once: true });
             }
         });
-        
+
         if (!isValid) {
             showNotification('Please fill in all required fields', 'error');
             return;
         }
-        
+
         // Collect form data
         const formData = new FormData(form);
         const bookingData = {};
-        
+
         for (let [key, value] of formData.entries()) {
             bookingData[key] = value;
         }
-        
-        // Add booking details
+
         bookingData.bookingDate = new Date().toISOString();
         bookingData.bookingId = generateBookingId();
         bookingData.status = 'pending';
-        
-        // Calculate cost
+
         const sport = getSportDetails(bookingData.sportId);
         bookingData.cost = calculateCost(sport, bookingData.duration, bookingData.type);
-        
-        // Save booking
+
         saveBooking(bookingData);
-        
-        // Close modal and show success
+
         closeBookingModal();
         showBookingConfirmation(bookingData);
     };
@@ -498,16 +471,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function saveBooking(data) {
         try {
-            // Get existing bookings
             const existingBookings = JSON.parse(localStorage.getItem('ryanSportsClubBookings') || '[]');
-            
-            // Add new booking
+
             existingBookings.push(data);
-            
-            // Save back to localStorage
+
             localStorage.setItem('ryanSportsClubBookings', JSON.stringify(existingBookings));
-            
-            console.log('Booking saved:', data);
+
         } catch (error) {
             console.error('Error saving booking:', error);
         }
@@ -515,25 +484,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showBookingConfirmation(bookingData) {
         const sport = getSportDetails(bookingData.sportId);
-        
+
         const message = `
             Booking confirmed! 
             ${sport.name} session on ${formatDate(bookingData.date)} at ${formatTime(bookingData.time)}
             Booking ID: ${bookingData.bookingId}
             Total: $${bookingData.cost}
         `;
-        
+
         showNotification(message, 'success');
     }
 
     function showNotification(message, type = 'info') {
-        // Remove existing notifications
         const existingNotification = document.querySelector('.notification');
         if (existingNotification) {
             existingNotification.remove();
         }
-        
-        // Create notification
+
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
@@ -542,15 +509,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span>${message}</span>
             </div>
         `;
-        
+
         document.body.appendChild(notification);
-        
-        // Animate in
+
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 10);
-        
-        // Auto remove
+
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
@@ -568,313 +533,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function addBookingModalStyles() {
-        if (document.querySelector('#booking-modal-styles')) return;
-        
-        const style = document.createElement('style');
-        style.id = 'booking-modal-styles';
-        style.textContent = `
-            .booking-modal {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 2rem;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            
-            .modal-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.8);
-                backdrop-filter: blur(5px);
-            }
-            
-            .modal-content {
-                position: relative;
-                background: white;
-                border-radius: 1.5rem;
-                max-width: 800px;
-                width: 100%;
-                max-height: 90vh;
-                overflow-y: auto;
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            }
-            
-            .modal-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 2rem 2rem 1rem;
-                border-bottom: 1px solid var(--gray-200);
-            }
-            
-            .modal-header h2 {
-                color: var(--gray-900);
-                margin: 0;
-            }
-            
-            .modal-close {
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: var(--gray-500);
-                cursor: pointer;
-                padding: 0.5rem;
-                border-radius: 50%;
-                transition: var(--transition);
-            }
-            
-            .modal-close:hover {
-                background: var(--gray-100);
-                color: var(--gray-700);
-            }
-            
-            .modal-body {
-                padding: 2rem;
-            }
-            
-            .sport-info {
-                background: var(--gray-50);
-                border-radius: 1rem;
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            
-            .info-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .info-item {
-                display: flex;
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-            
-            .info-item strong {
-                color: var(--gray-700);
-                font-size: 0.875rem;
-            }
-            
-            .info-item span {
-                color: var(--gray-600);
-            }
-            
-            .pricing-info h3 {
-                color: var(--gray-900);
-                margin-bottom: 1rem;
-                font-size: 1.125rem;
-            }
-            
-            .pricing-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-            
-            .price-card {
-                background: white;
-                padding: 1rem;
-                border-radius: 0.5rem;
-                text-align: center;
-                border: 2px solid var(--gray-200);
-            }
-            
-            .price-card h4 {
-                color: var(--gray-700);
-                margin-bottom: 0.5rem;
-                font-size: 0.875rem;
-            }
-            
-            .price {
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: var(--primary);
-                margin-bottom: 0.25rem;
-            }
-            
-            .price-daily {
-                font-size: 0.875rem;
-                color: var(--gray-500);
-            }
-            
-            .booking-form {
-                border-top: 1px solid var(--gray-200);
-                padding-top: 2rem;
-            }
-            
-            .form-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .form-group {
-                margin-bottom: 1rem;
-            }
-            
-            .form-group label {
-                display: block;
-                font-weight: 500;
-                color: var(--gray-700);
-                margin-bottom: 0.5rem;
-            }
-            
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 100%;
-                padding: 0.75rem;
-                border: 2px solid var(--gray-200);
-                border-radius: var(--radius);
-                font-family: var(--font-primary);
-                transition: var(--transition);
-            }
-            
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus {
-                outline: none;
-                border-color: var(--primary);
-                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            }
-            
-            .booking-summary {
-                background: var(--primary);
-                color: white;
-                border-radius: 1rem;
-                padding: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .booking-summary h3 {
-                color: white;
-                margin-bottom: 1rem;
-            }
-            
-            .summary-content {
-                display: flex;
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .summary-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-bottom: 0.5rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-            
-            .summary-item:last-child {
-                border-bottom: none;
-            }
-            
-            .summary-item.total {
-                font-weight: 700;
-                font-size: 1.125rem;
-                border-top: 1px solid rgba(255, 255, 255, 0.3);
-                padding-top: 0.75rem;
-                margin-top: 0.5rem;
-            }
-            
-            .modal-actions {
-                display: flex;
-                justify-content: flex-end;
-                gap: 1rem;
-                padding: 1rem 2rem 2rem;
-                border-top: 1px solid var(--gray-200);
-            }
-            
-            .notification {
-                position: fixed;
-                top: 100px;
-                right: 2rem;
-                background: white;
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                max-width: 400px;
-            }
-            
-            .notification-success {
-                border-left: 4px solid var(--accent);
-            }
-            
-            .notification-error {
-                border-left: 4px solid #ef4444;
-            }
-            
-            .notification-info {
-                border-left: 4px solid var(--primary);
-            }
-            
-            .notification-content {
-                display: flex;
-                align-items: flex-start;
-                gap: 0.75rem;
-                padding: 1rem 1.5rem;
-            }
-            
-            .notification-success i {
-                color: var(--accent);
-            }
-            
-            .notification-error i {
-                color: #ef4444;
-            }
-            
-            .notification-info i {
-                color: var(--primary);
-            }
-            
-            @media (max-width: 768px) {
-                .booking-modal {
-                    padding: 1rem;
-                }
-                
-                .modal-content {
-                    max-height: 95vh;
-                }
-                
-                .form-row {
-                    grid-template-columns: 1fr;
-                }
-                
-                .pricing-grid {
-                    grid-template-columns: 1fr;
-                }
-                
-                .info-grid {
-                    grid-template-columns: 1fr;
-                }
-                
-                .modal-actions {
-                    flex-direction: column;
-                }
-                
-                .notification {
-                    right: 1rem;
-                    left: 1rem;
-                    max-width: none;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
 });

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB"/>
+      <stop offset="100%" style="stop-color:#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#D97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Shield Background -->
+  <g filter="url(#shadow)">
+    <!-- Shield shape -->
+    <path d="M15 15 L85 15 L85 65 Q85 95 50 110 Q15 95 15 65 Z" fill="url(#shieldGrad)"/>
+    <!-- Inner shield border -->
+    <path d="M22 22 L78 22 L78 62 Q78 88 50 102 Q22 88 22 62 Z" fill="none" stroke="#F59E0B" stroke-width="1.5" opacity="0.8"/>
+    
+    <!-- Trophy / Star Icon -->
+    <g transform="translate(50, 50)">
+      <!-- Stylized trophy cup -->
+      <path d="M-12 -18 L12 -18 L10 -4 Q8 6 0 10 Q-8 6 -10 -4 Z" fill="url(#goldGrad)"/>
+      <!-- Trophy handles -->
+      <path d="M-12 -16 Q-20 -14 -18 -6 Q-16 0 -10 -2" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 -16 Q20 -14 18 -6 Q16 0 10 -2" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+      <!-- Trophy base -->
+      <rect x="-3" y="10" width="6" height="4" rx="1" fill="#F59E0B"/>
+      <rect x="-8" y="14" width="16" height="3" rx="1.5" fill="#F59E0B"/>
+      <!-- Star on trophy -->
+      <polygon points="0,-14 2,-10 6,-10 3,-7 4,-3 0,-5 -4,-3 -3,-7 -6,-10 -2,-10" fill="white" opacity="0.9"/>
+    </g>
+    
+    <!-- Small decorative stars -->
+    <circle cx="30" cy="30" r="1.5" fill="#F59E0B" opacity="0.6"/>
+    <circle cx="70" cy="30" r="1.5" fill="#F59E0B" opacity="0.6"/>
+  </g>
+  
+  <!-- Text: RYAN -->
+  <text x="115" y="55" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="46" fill="#1E293B" letter-spacing="3">RYAN</text>
+  
+  <!-- Text: SPORTS CLUB -->
+  <text x="117" y="85" font-family="'Segoe UI', Arial, sans-serif" font-weight="600" font-size="22" fill="#2563EB" letter-spacing="8">SPORTS CLUB</text>
+  
+  <!-- Accent line under RYAN -->
+  <rect x="115" y="60" width="60" height="3" rx="1.5" fill="url(#goldGrad)"/>
+  
+  <!-- Decorative dots -->
+  <circle cx="340" cy="40" r="3" fill="#2563EB" opacity="0.15"/>
+  <circle cx="355" cy="50" r="2" fill="#F59E0B" opacity="0.2"/>
+  <circle cx="345" cy="65" r="2.5" fill="#2563EB" opacity="0.1"/>
+</svg>

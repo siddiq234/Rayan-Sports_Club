@@ -1,0 +1,473 @@
+﻿/* =====================================================
+   Shared Modal & Notification Styles — Rayan Sports Club
+   Covers: booking modal, registration modal, success modal,
+           and notification toasts used across all pages.
+   ===================================================== */
+
+.booking-modal,
+.registration-modal,
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.booking-modal .modal-content {
+    max-width: 800px;
+}
+
+.registration-modal .modal-content {
+    max-width: 700px;
+}
+
+.success-modal .modal-content {
+    max-width: 600px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.modal-header h2 {
+    color: var(--gray-900);
+    margin: 0;
+}
+
+/* Success modal header override */
+.success-modal .modal-header {
+    text-align: center;
+    flex-direction: column;
+    padding: 3rem 3rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-bottom: none;
+}
+
+.success-modal .modal-header h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.success-modal .modal-header p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: var(--gray-100);
+    color: var(--gray-700);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.success-modal .modal-body {
+    padding: 2rem 3rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 2rem 2rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.success-modal .modal-actions {
+    padding: 2rem 3rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.sport-info,
+.activity-info {
+    background: var(--gray-50);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item strong {
+    min-width: 100px;
+    color: var(--gray-700);
+    font-size: 0.875rem;
+}
+
+.info-item span {
+    color: var(--gray-600);
+    flex: 1;
+}
+
+.pricing-info h3 {
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.price-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 2px solid var(--gray-200);
+}
+
+.price-card h4 {
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.price-daily {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.booking-summary {
+    background: var(--primary);
+    color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.booking-summary h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item.total {
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.membership-details {
+    background: var(--gray-50);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.next-steps h3 {
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.next-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+.next-steps li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--gray-600);
+}
+
+.next-steps li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.requirements-section,
+.benefits-section {
+    margin-bottom: 2rem;
+}
+
+.requirements-section h3,
+.benefits-section h3 {
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.requirements-section ul,
+.benefits-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.requirements-section li,
+.benefits-section li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.requirements-section li:last-child,
+.benefits-section li:last-child {
+    border-bottom: none;
+}
+
+.requirements-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.benefits-section li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.booking-form,
+.registration-form {
+    border-top: 1px solid var(--gray-200);
+    padding-top: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius);
+    font-family: var(--font-primary);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.checkbox-item:hover {
+    background: var(--gray-100);
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 2rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 10001;
+    transform: translateX(calc(100% + 2rem));
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-width: 400px;
+}
+
+.notification-success {
+    border-left: 4px solid var(--accent);
+}
+
+.notification-error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification-info {
+    border-left: 4px solid var(--primary);
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+}
+
+.notification-success i {
+    color: var(--accent);
+}
+
+.notification-error i {
+    color: #ef4444;
+}
+
+.notification-info i {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+
+    .booking-modal,
+    .registration-modal,
+    .success-modal {
+        padding: 1rem;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+    }
+
+    .form-row,
+    .pricing-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .notification {
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+}

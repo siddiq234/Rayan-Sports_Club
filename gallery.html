@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Ryan Sports Club - Photo Gallery & Champions">
     <title>Gallery - Ryan Sports Club</title>
 
@@ -16,6 +17,10 @@
     <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet">
     <link href="css/gallery.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+
+    <!-- Animations CSS -->
+    <link href="css/animations.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +29,7 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="brand-logo">
-                    <i class="fas fa-trophy"></i>
+                    <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                 </div>
                 <div class="brand-text">
                     <span class="brand-name">RYAN</span>
@@ -71,6 +76,7 @@
     <section class="page-header">
         <div class="header-background">
             <div class="header-overlay"></div>
+            <img src="images/awards-ceremony.jpg" alt="Awards Ceremony" class="header-bg-image">
         </div>
         <div class="container">
             <div class="header-content">
@@ -87,6 +93,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Gallery Filter -->
     <section class="gallery-filter">
@@ -188,6 +195,40 @@
                         <p class="champion-quote">
                             "The professional coaching and competitive environment at Ryan Sports Club
                             elevated my game to the next level."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- New Champion: David Chen -->
+                <div class="champion-card featured">
+                    <div class="champion-image">
+                        <img src="images/david_chen_tennis_champion.png" alt="David Chen - Tennis Champion"
+                            loading="lazy">
+                        <div class="champion-badge">
+                            <i class="fas fa-trophy"></i>
+                            <span>Grand Slam Winner</span>
+                        </div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>David Chen</h3>
+                        <span class="sport">Tennis</span>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>ATP Ranking #5</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>2x Grand Slam Titles</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-star"></i>
+                                <span>Club Captain Since 2022</span>
+                            </div>
+                        </div>
+                        <p class="champion-quote">
+                            "The mental conditioning and advanced training programs at Ryan Sports Club
+                            were pivotal in my journey to becoming a top-tier professional athlete."
                         </p>
                     </div>
                 </div>
@@ -479,7 +520,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-logo">
-                        <i class="fas fa-trophy"></i>
+                        <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                     </div>
                     <div class="brand-text">
                         <span class="brand-name">RYAN SPORTS CLUB</span>
@@ -569,6 +610,7 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 
 </html>

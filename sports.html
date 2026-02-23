@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Ryan Sports Club - Sports & Activities">
     <title>Sports & Activities - Ryan Sports Club</title>
 
@@ -16,6 +17,11 @@
     <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet">
     <link href="css/sports.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+
+    <!-- Animations CSS -->
+    <link href="css/animations.css" rel="stylesheet">
+    <link href="css/modals.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +30,7 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="brand-logo">
-                    <i class="fas fa-trophy"></i>
+                    <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                 </div>
                 <div class="brand-text">
                     <span class="brand-name">RYAN</span>
@@ -71,6 +77,7 @@
     <section class="page-header">
         <div class="header-background">
             <div class="header-overlay"></div>
+            <img src="images/football-field.jpg" alt="Football Field" class="header-bg-image">
         </div>
         <div class="container">
             <div class="header-content">
@@ -649,6 +656,272 @@
                         </div>
                     </div>
                 </div>
+                <div class="sport-detail-card" data-category="outdoor" id="athletics">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Athletics</h3>
+                            <span class="sport-category">Outdoor Sport</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Professional 400m synthetic track for sprinting, long-distance running, and field events.
+                            Host to regional athletic meets and training programs.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Hours</h4>
+                                        <p>5:00 AM - 9:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-ruler-horizontal"></i>
+                                    <div>
+                                        <h4>Track Length</h4>
+                                        <p>400m Standard</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-shoe-prints"></i>
+                                    <div>
+                                        <h4>Surface</h4>
+                                        <p>Synthetic Tartan</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-stopwatch"></i>
+                                    <div>
+                                        <h4>Training</h4>
+                                        <p>Speed & Endurance</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Events</h4>
+                                <ul>
+                                    <li>Sprints (100m, 200m, 400m)</li>
+                                    <li>Middle Distance (800m, 1500m)</li>
+                                    <li>Long Jump & High Jump</li>
+                                    <li>Relay Races</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-section">
+                                <h4>Famous Athletes</h4>
+                                <div class="famous-players">
+                                    <div class="player">
+                                        <span class="player-name">Usain Bolt</span>
+                                        <span class="player-title">World Record Holder</span>
+                                    </div>
+                                    <div class="player">
+                                        <span class="player-name">Allyson Felix</span>
+                                        <span class="player-title">Most Decorated</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('athletics')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness & Wellness -->
+    <section id="fitness" class="sports-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Fitness & Wellness</span>
+                </div>
+                <h2 class="section-title">Holistic Health</h2>
+                <p class="section-subtitle">
+                    Achieve your personal best with our comprehensive fitness facilities and recovery services.
+                </p>
+            </div>
+
+            <div class="sports-grid">
+                <div class="sport-detail-card" data-category="fitness" id="gym">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Modern Gym</h3>
+                            <span class="sport-category">Fitness</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Open 24/7</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            State-of-the-art fitness center equipped with the latest cardio machines, free weights,
+                            and resistance training equipment.
+                            Personal trainers available to guide your fitness journey.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Hours</h4>
+                                        <p>24 Hours Access</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-running"></i>
+                                    <div>
+                                        <h4>Equipment</h4>
+                                        <p>Technogym & Life Fitness</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-user-friends"></i>
+                                    <div>
+                                        <h4>Training</h4>
+                                        <p>Personal Training</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-child"></i>
+                                    <div>
+                                        <h4>Classes</h4>
+                                        <p>Group Fitness</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Facilities</h4>
+                                <ul>
+                                    <li>Cardio Zone with TV screens</li>
+                                    <li>Free Weights Area</li>
+                                    <li>Functional Training Zone</li>
+                                    <li>Stretching Area</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('gym')">
+                                <span>Book Induction</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sport-detail-card" data-category="fitness" id="recovery">
+                    <div class="card-header">
+                        <div class="sport-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="sport-info">
+                            <h3>Recovery Zone</h3>
+                            <span class="sport-category">Wellness</span>
+                        </div>
+                        <div class="sport-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="sport-description">
+                            Dedicated recovery area featuring sauna, steam room, and physiotherapy services.
+                            Essential for muscle recovery and relaxation after intense workouts.
+                        </p>
+
+                        <div class="sport-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Hours</h4>
+                                        <p>8:00 AM - 10:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-hot-tub"></i>
+                                    <div>
+                                        <h4>Amenities</h4>
+                                        <p>Sauna & Steam Room</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-user-md"></i>
+                                    <div>
+                                        <h4>Services</h4>
+                                        <p>Physiotherapy</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <div>
+                                        <h4>Environment</h4>
+                                        <p>Relaxing Atmosphere</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sport-details">
+                            <div class="details-section">
+                                <h4>Wellness Services</h4>
+                                <ul>
+                                    <li>Sports Massage Therapy</li>
+                                    <li>Injury Rehabilitation</li>
+                                    <li>Hydrotherapy</li>
+                                    <li>Nutrition Consultation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="membership.html" class="btn btn-primary">
+                                <span>Join Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-outline" onclick="bookSession('recovery')">
+                                <span>Book Session</span>
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -684,7 +957,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-logo">
-                        <i class="fas fa-trophy"></i>
+                        <img src="images/favicon.svg" alt="Ryan Sports Club" width="40" height="40">
                     </div>
                     <div class="brand-text">
                         <span class="brand-name">RYAN SPORTS CLUB</span>
@@ -755,6 +1028,7 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/sports.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 
 </html>

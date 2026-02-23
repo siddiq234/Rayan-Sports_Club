@@ -143,22 +143,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1.5rem;
     background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
     border-bottom: 1px solid var(--gray-200);
 }
 
 .sport-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: var(--gradient-primary);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--white);
-    margin-right: 1.5rem;
+    margin-right: 1.25rem;
 }
 
 .sport-info h3 {
@@ -198,18 +198,18 @@
 }
 
 .card-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .sport-description {
     font-size: 1.125rem;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--gray-600);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .sport-features {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .feature-grid {
@@ -222,7 +222,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0.75rem;
     background: var(--gray-50);
     border-radius: var(--radius);
     transition: var(--transition);
@@ -255,9 +255,9 @@
 .sport-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    padding: 2rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
     background: var(--gray-50);
     border-radius: var(--radius-lg);
 }
@@ -266,7 +266,7 @@
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--gray-900);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .details-section ul {
@@ -275,7 +275,7 @@
 }
 
 .details-section li {
-    padding: 0.5rem 0;
+    padding: 0.35rem 0;
     color: var(--gray-600);
     border-bottom: 1px solid var(--gray-200);
     position: relative;
@@ -303,7 +303,7 @@
 .player {
     display: flex;
     flex-direction: column;
-    padding: 0.75rem;
+    padding: 0.5rem;
     background: var(--white);
     border-radius: var(--radius);
     border-left: 3px solid var(--primary);
@@ -330,65 +330,146 @@
     background: var(--gray-50);
 }
 
-/* Responsive Design */
+/* ================================================
+   SPORTS RESPONSIVE STYLES (merged from responsive.css)
+   ================================================ */
+
+/* -------- TABLET LANDSCAPE (1024px) -------- */
 @media (max-width: 1024px) {
     .sport-details {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* -------- TABLET PORTRAIT (768px) -------- */
 @media (max-width: 768px) {
     .page-title {
         font-size: 2.5rem;
     }
-    
+
     .filter-tabs {
         gap: 0.5rem;
     }
-    
+
     .filter-tab {
         padding: 0.5rem 1rem;
         font-size: 0.875rem;
     }
-    
+
     .card-header {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
     }
-    
+
     .sport-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
         margin-right: 0;
     }
-    
+
+    .sport-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
     .feature-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .card-actions {
         flex-direction: column;
     }
 }
 
+/* -------- MOBILE LANDSCAPE (640px) -------- */
+@media (max-width: 640px) {
+    .filter-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        justify-content: flex-start;
+        padding: 0 1rem 0.5rem;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-tab {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .card-actions .btn {
+        width: 100%;
+    }
+}
+
+/* -------- MOBILE PORTRAIT (480px) -------- */
 @media (max-width: 480px) {
     .page-header {
         padding: 6rem 0 3rem;
     }
-    
+
     .page-title {
         font-size: 2rem;
     }
-    
+
     .card-content {
         padding: 1.5rem;
     }
-    
+
     .sport-details {
         padding: 1.5rem;
+    }
+
+    .sport-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .sport-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-header {
+        padding: 1.25rem;
+    }
+
+    .sport-status {
+        text-align: center;
+    }
+
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .feature-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .player {
+        padding: 0.5rem 0.75rem;
     }
 }
