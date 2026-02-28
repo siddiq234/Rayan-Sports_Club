@@ -100,15 +100,32 @@
     }
 
     function animateCounter(el) {
-        var text = el.textContent.trim();
-        var match = text.match(/(\d[\d,]*)/);
-        if (!match) return;
+        var target;
+        var prefix = '';
+        var suffix = '';
 
-        var target = parseInt(match[1].replace(/,/g, ''), 10);
-        if (isNaN(target)) return;
+        // Prefer data-count attribute for the target value
+        if (el.dataset.count) {
+            target = parseInt(el.dataset.count.replace(/,/g, ''), 10);
+            // Check original text for any prefix/suffix (e.g. "$" or "+")
+            var text = el.textContent.trim();
+            var match = text.match(/(\d[\d,]*)/);
+            if (match) {
+                prefix = text.substring(0, text.indexOf(match[1]));
+                suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+            }
+        } else {
+            // Fall back to parsing from text content
+            var text = el.textContent.trim();
+            var match = text.match(/(\d[\d,]*)/);
+            if (!match) return;
+            target = parseInt(match[1].replace(/,/g, ''), 10);
+            prefix = text.substring(0, text.indexOf(match[1]));
+            suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+        }
 
-        var prefix = text.substring(0, text.indexOf(match[1]));
-        var suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+        if (isNaN(target) || target === 0) return;
+
         var duration = 1800;
         var start = performance.now();
 
