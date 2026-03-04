@@ -1,0 +1,655 @@
+/* Base state: Elements are VISIBLE by default */
+.animate-on-scroll,
+.fade-up,
+.fade-left,
+.fade-right,
+.scale-up,
+.stagger-children>* {
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 
+   State: Prepared for animation (Hidden) 
+   Applied by JS only to elements starting OFF-SCREEN 
+*/
+.prepare-anim {
+    opacity: 0 !important;
+}
+
+.prepare-anim.animate-on-scroll {
+    transform: translateY(40px);
+}
+
+.prepare-anim.fade-up {
+    transform: translateY(50px);
+}
+
+.prepare-anim.fade-left {
+    transform: translateX(-60px);
+}
+
+.prepare-anim.fade-right {
+    transform: translateX(60px);
+}
+
+.prepare-anim.scale-up {
+    transform: scale(0.85);
+}
+
+.prepare-anim.stagger-children>* {
+    transform: translateY(30px);
+}
+
+/* State: Animated (Visible) */
+.animated {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+    scale: 1 !important;
+}
+
+.stagger-children.animated>*:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.stagger-children.animated>*:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.stagger-children.animated>*:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.stagger-children.animated>*:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.stagger-children.animated>*:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+.stagger-children.animated>*:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+.stagger-children.animated>*:nth-child(7) {
+    transition-delay: 0.35s;
+}
+
+.stagger-children.animated>*:nth-child(8) {
+    transition-delay: 0.4s;
+}
+
+.stagger-children.animated>* {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -------- KEYFRAME ANIMATIONS -------- */
+
+/* Floating effect */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(37, 99, 235, 0.4), 0 0 50px rgba(37, 99, 235, 0.1);
+    }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Bounce in */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide in from bottom */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotate in */
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* Counter tick animation */
+@keyframes countPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* -------- NAVBAR ANIMATIONS -------- */
+
+.navbar {
+    transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+    animation: none;
+}
+
+/* Nav links professional hover */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary, #2563EB);
+    background: rgba(37, 99, 235, 0.06);
+    border-radius: 8px;
+}
+
+/* -------- CARD HOVER EFFECTS -------- */
+
+/* Premium card lift */
+.sport-detail-card,
+.plan-card,
+.event-card,
+.contact-card,
+.benefit-card,
+.champion-card,
+.testimonial-card,
+.feature-card,
+.visual-card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sport-detail-card:hover,
+.plan-card:hover,
+.event-card:hover,
+.contact-card:hover,
+.benefit-card:hover,
+.champion-card:hover,
+.testimonial-card:hover,
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Card image zoom on hover */
+.visual-card:hover,
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.visual-card img,
+.gallery-item img,
+.champion-image img,
+.event-image img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.visual-card:hover img,
+.gallery-item:hover img,
+.champion-card:hover .champion-image img,
+.event-card:hover .event-image img {
+    transform: scale(1.08);
+}
+
+/* -------- BUTTON ANIMATIONS -------- */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Ripple effect on click */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Plan button special glow */
+.plan-btn:hover {
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* -------- ICON ANIMATIONS -------- */
+
+/* Icon bounce on card hover */
+.contact-card:hover .contact-icon,
+.benefit-card:hover .benefit-icon,
+.sport-detail-card:hover .sport-icon {
+    transform: scale(1.15) rotate(5deg);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Plan icon pulse on hover */
+.plan-card:hover .plan-icon {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Trophy icons subtle float */
+.brand-logo {
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover .brand-logo {
+    transform: scale(1.1);
+}
+
+/* -------- HERO SECTION ANIMATIONS -------- */
+
+.hero-badge {
+    animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.title-line {
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.title-main {
+    animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-text p {
+    animation: slideInUp 0.8s ease-out 0.8s both;
+}
+
+.hero-actions {
+    animation: slideInUp 0.8s ease-out 1s both;
+}
+
+.hero-stats {
+    animation: slideInUp 0.8s ease-out 1.2s both;
+}
+
+/* Hero background parallax shimmer */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+/* -------- PAGE HEADER ANIMATIONS -------- */
+
+.page-header .page-title {
+    animation: slideInUp 0.7s ease-out 0.2s both;
+}
+
+.page-header .page-description {
+    animation: slideInUp 0.7s ease-out 0.4s both;
+}
+
+.page-header .breadcrumb {
+    animation: slideInUp 0.7s ease-out 0.1s both;
+}
+
+/* -------- FILTER TAB ANIMATIONS -------- */
+
+.filter-tab {
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-tab:hover {
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.filter-tab.active {
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* -------- STAT COUNTER ANIMATIONS -------- */
+
+.stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:hover .stat-number {
+    animation: countPulse 0.5s ease;
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.2) rotate(10deg);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* -------- GALLERY ANIMATIONS -------- */
+
+.gallery-item {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item:hover .overlay-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay-content {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* -------- FORM INPUT ANIMATIONS -------- */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary, #2563EB);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1), 0 2px 8px rgba(37, 99, 235, 0.08);
+    background: var(--white, #fff);
+}
+
+/* Checkbox animation */
+.checkbox-item {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.checkbox-item:hover {
+    transform: translateX(4px);
+}
+
+/* -------- FOOTER ANIMATIONS -------- */
+
+.footer-section a {
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    transform: translateX(4px);
+}
+
+.social-links a {
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* -------- SCROLL PROGRESS BAR -------- */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary, #2563EB), var(--secondary, #F59E0B));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    border-radius: 0 2px 2px 0;
+}
+
+/* -------- BACK TO TOP BUTTON -------- */
+
+.back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* -------- LOADING SHIMMER FOR IMAGES -------- */
+
+.image-placeholder,
+.champion-image,
+.event-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before,
+.champion-image::before,
+.event-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    animation: shimmer 2s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* -------- CTA SECTION ANIMATION -------- */
+
+.cta-section {
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+}
+
+/* -------- TIMELINE / MONTH HEADER -------- */
+
+.month-header {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.month-header:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.month-icon {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.month-header:hover .month-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* -------- ACTIVITY CARD ANIMATION -------- */
+
+.activity-date {
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-date::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.activity-card:hover .activity-date::after {
+    opacity: 1;
+}
+
+/* -------- LIGHTBOX ANIMATION -------- */
+
+.lightbox {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-content {
+    animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* -------- NOTIFICATION TOAST -------- */
+
+.notification {
+    animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -------- REDUCED MOTION -------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-on-scroll,
+    .fade-up,
+    .fade-left,
+    .fade-right,
+    .scale-up,
+    .stagger-children>* {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .hero-badge,
+    .title-line,
+    .title-main,
+    .hero-text p,
+    .hero-actions,
+    .hero-stats,
+    .page-header .page-title,
+    .page-header .page-description,
+    .page-header .breadcrumb {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .hero-background::after,
+    .image-placeholder::before,
+    .champion-image::before,
+    .event-image::before {
+        animation: none !important;
+        display: none;
+    }
+}
