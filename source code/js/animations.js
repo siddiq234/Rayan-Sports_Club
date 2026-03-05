@@ -74,7 +74,7 @@
 
         animatedEls.forEach(function (el) {
             var rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
+            if (rect.top < window.innerHeight * 0.9) {
                 el.classList.add('animated');
             } else {
                 el.classList.add('prepare-anim');
